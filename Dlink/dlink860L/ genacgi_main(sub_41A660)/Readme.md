@@ -24,13 +24,14 @@ An attacker who successfully exploits this vulnerability can send a POST request
 Vulnerability Details:
 The gena.cgi of DIR860L has a stack overflow vulnerability：
 ![image](image/genacgi-vlun1.png)
-![image](image/gena_vuln2 .png)
+![image](image/gena_vuln2.png)
 
 Control the REQUEST_METHOD and REQUEST_URI to enter the sub_41A660 function：
-![image](image/gena_vuln3.png)
+![image](image/gena_vuln2.png)
+
 
 In the sub_41A660 function, stack overflow is achieved by manipulating SID as the v2 field of the sprintf function：
-
+![image](image/gena_vuln3.png)
 ```
 #python new.py
 # -*- coding: utf-8 -*-
