@@ -2,9 +2,13 @@ D-Link DIR-860L Routers stackoverflow vulnerability
 Product Information:
 
 Brand:  D-Link
+
 Model: D-Link DIR-860L Router
+
 Firmware Version:V2.04
+
 Official Website: D-Link DIR-860L Routers
+
 Firmware Download URL:[https://tsd.dlink.com.tw/ddwn/](https://support.dlink.com/resource/products/dir-860l/REVB/)
 
 Affected Component:
@@ -16,12 +20,14 @@ affected function : genacgi_main/sub_41A660
 
 
 Overview:
+
 The D-Link DIR-860L is built with a Broadcom BCM47081A0 @ 800 MHz chipset, 128 MB of RAM, and 128 MB of flash memory, providing responsive performance.
 It easily supports multiple simultaneous streams, downloads, and connected devices. Regardless of the load, it maintains a stable and fast connection.
 In version 2.04, due to a flaw in its authentication logic, unauthorized access to /gena.cgi is possible. The SID field lacks length verification, presenting a buffer overflow vulnerability.
 An attacker who successfully exploits this vulnerability can send a POST request to /gena.cgi, resulting in an unauthorized crash or execution of arbitrary commands.
 
 Vulnerability Details:
+
 The gena.cgi of DIR860L has a stack overflow vulnerability：
 ![image](image/genacgi-vlun1.png)
 ![image](image/gena_vuln2.png)
