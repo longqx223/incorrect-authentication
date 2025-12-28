@@ -17,8 +17,6 @@ affected source code file :cgibin
 
 affected function : genacgi_main/sub_41A660
 
-
-
 ## Overview:
 
 The D-Link DIR-860L is built with a Broadcom BCM47081A0 @ 800 MHz chipset, 128 MB of RAM, and 128 MB of flash memory, providing responsive performance.
@@ -30,19 +28,15 @@ An attacker who successfully exploits this vulnerability can send a POST request
 
 The gena.cgi of DIR860L has a stack overflow vulnerability：
 ![image](image/genacgi-vlun1.png)
-![image](image/gena_vuln2.png)
 
 Control the REQUEST_METHOD and REQUEST_URI to enter the sub_41A660 function：
 ![image](image/gena_vuln2.png)
 
-
 In the sub_41A660 function, stack overflow is achieved by manipulating SID as the v2 field of the sprintf function：
-## POC
 ![image](image/gena_vuln3.png)
-```
-#python new.py
 
-# -*- coding: utf-8 -*-
+## POC
+```
 import sys
 import struct
 import base64
@@ -116,4 +110,5 @@ print("[*] GDB server listening on port 1234...")
 subprocess.run(cmd, env=binary_env, input=b"") 
 ```
 
-Attack:
+## Attack:
+![image](image/gena_expliot.png)
